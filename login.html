@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - Akash Pal</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Segoe UI', sans-serif; 
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+      min-height: 100vh; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+    }
+    .login-box { 
+      background: white; 
+      padding: 40px; 
+      border-radius: 16px; 
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3); 
+      width: 90%; 
+      max-width: 400px; 
+    }
+    h2 { text-align: center; margin-bottom: 30px; color: #333; }
+    input { 
+      width: 100%; 
+      padding: 12px; 
+      margin: 10px 0; 
+      border: 2px solid #eee; 
+      border-radius: 8px; 
+      font-size: 16px; 
+    }
+    input:focus { border-color: #667eea; outline: none; }
+    button { 
+      width: 100%; 
+      padding: 14px; 
+      background: #667eea; 
+      color: white; 
+      border: none; 
+      border-radius: 8px; 
+      font-size: 16px; 
+      font-weight: 600; 
+      cursor: pointer; 
+      margin-top: 10px; 
+    }
+    button:hover { background: #764ba2; }
+    #error { color: red; text-align: center; margin-top: 10px; min-height: 20px; }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>🔒 Admin Login</h2>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+      <p id="error"></p>
+    </form>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDBL1a98VIf9KxdmdhOIsIHjiuMNx9G--Y",
+      authDomain: "akashpal-d63d9.firebaseapp.com",
+      projectId: "akashpal-d63d9",
+      storageBucket: "akashpal-d63d9.firebasestorage.app",
+      messagingSenderId: "844251425292",
+      appId: "1:844251425292:web:5395bd1d62a7444f665c29"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        window.location.href = 'dashboard.html';
+      }
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const errorEl = document.getElementById('error');
+      
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        window.location.href = 'dashboard.html';
+      } catch (error) {
+        errorEl.textContent = 'Wrong Email or Password!';
+      }
+    });
+  </script>
+</body>
+</html>
