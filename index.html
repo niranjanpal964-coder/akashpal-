@@ -1,26 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akash Pal - Contact Me</title>
+    <title>Akash Pal - Official Website</title>
     <style>
-        body { font-family: Arial; background: #f0f0f0; padding: 20px; }
-        .form { max-width: 400px; margin: 50px auto; background: white; padding: 30px; border-radius: 10px; }
-        input, textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
-        button { width: 100%; padding: 12px; background: #25D366; color: white; border: none; border-radius: 5px; font-size: 16px; }
-        h2 { text-align: center; color: #333; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui; line-height: 1.6; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        section { border: 2px solid #e0e0e0; padding: 20px; margin: 25px 0; border-radius: 8px; }
+        h1 { color: #0070f3; text-align: center; margin-bottom: 30px; }
+        h2 { color: #333; margin-bottom: 15px; }
+        button { background: #0070f3; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #0051a2; }
+        input, textarea { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; }
+        dialog { border-radius: 12px; border: none; box-shadow: 0 0 30px rgba(0,0,0,0.3); padding: 25px; }
+        dialog::backdrop { background: rgba(0,0,0,0.6); }
+        details { background: #f9f9f9; padding: 15px; border-radius: 6px; margin: 10px 0; }
+        summary { font-weight: bold; cursor: pointer; color: #0070f3; }
+        footer { text-align: center; margin-top: 40px; color: #666; }
     </style>
 </head>
 <body>
-    <div class="form">
-        <h2>Contact Akash Pal</h2>
-        <form action="https://wa.me/917679422140" method="get" target="_blank">
-            <input type="text" name="text" placeholder="Your Name" required>
-            <input type="tel" placeholder="Your Mobile" required>
-            <textarea name="text" rows="4" placeholder="Your Message" required></textarea>
-            <button type="submit">Send to WhatsApp</button>
-        </form>
+    <div class="container">
+        <h1>🚀 Akash Pal Official</h1>
+        <p style="text-align:center; margin-bottom:30px;">Welcome to my website. নতুন HTML5 Tags দিয়ে বানানো</p>
+
+        <!-- 1. SEARCH TAG -->
+        <section>
+            <h2>1. &lt;search&gt; Tag - Search Box</h2>
+            <search>
+                <form>
+                    <input type="search" placeholder="Website এ কিছু খোঁজো..." name="q">
+                    <button type="submit">Search</button>
+                </form>
+            </search>
+        </section>
+
+        <!-- 2. DIALOG TAG -->
+        <section>
+            <h2>2. &lt;dialog&gt; Tag - Contact Modal</h2>
+            <button onclick="contactModal.showModal()">Contact Form খোলো</button>
+            
+            <dialog id="contactModal">
+                <h3>আমাকে Message করো</h3>
+                <form method="dialog">
+                    <input type="text" placeholder="তোমার নাম" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <textarea rows="4" placeholder="তোমার Message..." required></textarea>
+                    <button type="submit">Send Message</button>
+                    <button type="button" onclick="contactModal.close()" style="background:#666;">Close</button>
+                </form>
+            </dialog>
+        </section>
+
+        <!-- 3. DETAILS + SUMMARY -->
+        <section>
+            <h2>3. &lt;details&gt; Tag - FAQ Section</h2>
+            <details open>
+                <summary>এই Website কিসের জন্য?</summary>
+                <p>এটা Akash Pal এর Official Portfolio Website। HTML5 এর Latest Tags Use করে বানানো হয়েছে।</p>
+            </details>
+            
+            <details>
+                <summary>Tidio Chat Box কোথায়?</summary>
+                <p>নিচে ডান দিকে Blue Chat Icon আছে। ওটায় Click করলে Live Chat করতে পারবে।</p>
+            </details>
+
+            <details>
+                <summary>&lt;dialog&gt; Tag এর সুবিধা কী?</summary>
+                <p>আগে Modal বানাতে jQuery লাগতো। এখন শুধু HTML Tag দিয়েই Popup বানানো যায়। ESC চাপলে Auto Close হয়।</p>
+            </details>
+        </section>
+
+        <!-- 4. PICTURE TAG -->
+        <section>
+            <h2>4. &lt;picture&gt; Tag - Responsive Image</h2>
+            <picture>
+                <source media="(min-width: 650px)" srcset="https://picsum.photos/800/400">
+                <source media="(min-width: 400px)" srcset="https://picsum.photos/500/250">
+                <img src="https://picsum.photos/300/150" alt="Demo Responsive Image" style="width:100%; border-radius: 8px;">
+            </picture>
+            <p><small>Mobile এ ছোট Image, Desktop এ বড় Image Auto Load হবে</small></p>
+        </section>
+
+        <footer>
+            <p>© 2026 Akash Pal. Made with ❤️ using HTML5 New Tags</p>
+        </footer>
     </div>
+
+    <!-- Tidio Live Chat Script - এটা সবার শেষে </body> এর আগে -->
+    <script src="//code.tidio.co/aw50nk46v1ffhtvdunskihbjtlhh1zc.js" async></script>
 </body>
 </html>
