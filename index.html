@@ -1,91 +1,95 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Akash Pal AI | Business Solutions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #6366f1;
-      --secondary: #10b981;
-      --bg: #030712;
-      --glass: rgba(255, 255, 255, 0.05);
-      --border: rgba(255, 255, 255, 0.1);
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-    body { background: var(--bg); color: #fff; line-height: 1.6; overflow-x: hidden; }
-
-    nav { padding: 20px 10%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
-    .logo { font-size: 1.4rem; font-weight: 800; color: var(--primary); }
-
-    .hero { padding: 80px 10%; text-align: center; }
-    .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 20px; }
-    .highlight { background: linear-gradient(90deg, #6366f1, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero p { color: #94a3b8; font-size: 1.1rem; margin-bottom: 30px; }
-
-    .pricing { padding: 40px 10% 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-    .p-card { 
-      background: var(--glass); 
-      padding: 40px; 
-      border-radius: 24px; 
-      border: 1px solid var(--border); 
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-    .p-card:hover { transform: translateY(-10px); border-color: var(--primary); }
-    .price { font-size: 2.5rem; font-weight: 800; margin: 20px 0; }
-    
-    .btn {
-      background: var(--primary);
-      color: white;
-      padding: 12px 25px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-block;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-    }
-
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 2.2rem; }
-      .pricing { padding: 20px 5% 100px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akash Pal - Official Website</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui; line-height: 1.6; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        section { border: 2px solid #e0e0e0; padding: 20px; margin: 25px 0; border-radius: 8px; }
+        h1 { color: #0070f3; text-align: center; margin-bottom: 30px; }
+        h2 { color: #333; margin-bottom: 15px; }
+        button { background: #0070f3; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #0051a2; }
+        input, textarea { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; }
+        dialog { border-radius: 12px; border: none; box-shadow: 0 0 30px rgba(0,0,0,0.3); padding: 25px; }
+        dialog::backdrop { background: rgba(0,0,0,0.6); }
+        details { background: #f9f9f9; padding: 15px; border-radius: 6px; margin: 10px 0; }
+        summary { font-weight: bold; cursor: pointer; color: #0070f3; }
+        footer { text-align: center; margin-top: 40px; color: #666; }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>🚀 Akash Pal Official</h1>
+        <p style="text-align:center; margin-bottom:30px;">Welcome to my website. নতুন HTML5 Tags দিয়ে বানানো</p>
 
-  <nav>
-    <div class="logo">AKASH PAL AI</div>
-    <a href="index.html" style="color:#fff;text-decoration:none;">Try Chatbot →</a>
-  </nav>
+        <!-- 1. SEARCH TAG -->
+        <section>
+            <h2>1. &lt;search&gt; Tag - Search Box</h2>
+            <search>
+                <form>
+                    <input type="search" placeholder="Website এ কিছু খোঁজো..." name="q">
+                    <button type="submit">Search</button>
+                </form>
+            </search>
+        </section>
 
-  <section class="hero">
-    <h1>Grow Your Business with <span class="highlight">Smart AI Chatbots</span></h1>
-    <p>আপনার কাস্টমারদের সাথে ২৪/৭ যোগাযোগ রাখুন অটোমেটেড এআই চ্যাটবটের মাধ্যমে।</p>
-    <a href="index.html" class="btn" style="width: auto; padding: 15px 40px;">Try Live Chatbot</a>
-  </section>
+        <!-- 2. DIALOG TAG -->
+        <section>
+            <h2>2. &lt;dialog&gt; Tag - Contact Modal</h2>
+            <button onclick="contactModal.showModal()">Contact Form খোলো</button>
+            
+            <dialog id="contactModal">
+                <h3>আমাকে Message করো</h3>
+                <form method="dialog">
+                    <input type="text" placeholder="তোমার নাম" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <textarea rows="4" placeholder="তোমার Message..." required></textarea>
+                    <button type="submit">Send Message</button>
+                    <button type="button" onclick="contactModal.close()" style="background:#666;">Close</button>
+                </form>
+            </dialog>
+        </section>
 
-  <section class="pricing">
-    <div class="p-card">
-      <h3 style="color: var(--secondary)">Basic Bot</h3>
-      <p style="margin-top:10px; color:#94a3b8;">Rule-based basic interactions.</p>
-      <div class="price">₹1,499</div>
-      <button class="btn">Choose Plan</button>
+        <!-- 3. DETAILS + SUMMARY -->
+        <section>
+            <h2>3. &lt;details&gt; Tag - FAQ Section</h2>
+            <details open>
+                <summary>এই Website কিসের জন্য?</summary>
+                <p>এটা Akash Pal এর Official Portfolio Website। HTML5 এর Latest Tags Use করে বানানো হয়েছে।</p>
+            </details>
+            
+            <details>
+                <summary>Tidio Chat Box কোথায়?</summary>
+                <p>নিচে ডান দিকে Blue Chat Icon আছে। ওটায় Click করলে Live Chat করতে পারবে।</p>
+            </details>
+
+            <details>
+                <summary>&lt;dialog&gt; Tag এর সুবিধা কী?</summary>
+                <p>আগে Modal বানাতে jQuery লাগতো। এখন শুধু HTML Tag দিয়েই Popup বানানো যায়। ESC চাপলে Auto Close হয়।</p>
+            </details>
+        </section>
+
+        <!-- 4. PICTURE TAG -->
+        <section>
+            <h2>4. &lt;picture&gt; Tag - Responsive Image</h2>
+            <picture>
+                <source media="(min-width: 650px)" srcset="https://picsum.photos/800/400">
+                <source media="(min-width: 400px)" srcset="https://picsum.photos/500/250">
+                <img src="https://picsum.photos/300/150" alt="Demo Responsive Image" style="width:100%; border-radius: 8px;">
+            </picture>
+            <p><small>Mobile এ ছোট Image, Desktop এ বড় Image Auto Load হবে</small></p>
+        </section>
+
+        <footer>
+            <p>© 2026 Akash Pal. Made with ❤️ using HTML5 New Tags</p>
+        </footer>
     </div>
 
-    <div class="p-card" style="border-color: var(--primary);">
-      <h3 style="color: var(--primary)">Pro AI Bot</h3>
-      <p style="margin-top:10px; color:#94a3b8;">Advanced NLP & Lead Generation.</p>
-      <div class="price">₹4,999</div>
-      <button class="btn">Choose Plan</button>
-    </div>
-  </section>
-
-  <script src="//code.tidio.co/aw50nk46v1ffhtvdunskihbjtlhh1zc.js" async></script>
-
+    <!-- Tidio Live Chat Script - এটা সবার শেষে </body> এর আগে -->
+    <script src="//code.tidio.co/aw50nk46v1ffhtvdunskihbjtlhh1zc.js" async></script>
 </body>
 </html>
