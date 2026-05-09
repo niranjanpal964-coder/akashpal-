@@ -3,83 +3,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akash Pal - Official Website</title>
+    <title>Akash Pal - Digital Solutions</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: system-ui; line-height: 1.6; padding: 20px; background: #f5f5f5; }
-        .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        section { border: 2px solid #e0e0e0; padding: 20px; margin: 25px 0; border-radius: 8px; }
-        h1 { color: #0070f3; text-align: center; margin-bottom: 30px; }
-        h2 { color: #333; margin-bottom: 15px; }
-        button { background: #0070f3; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 16px; }
-        button:hover { background: #0051a2; }
-        input, textarea { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; }
-        dialog { border-radius: 12px; border: none; box-shadow: 0 0 30px rgba(0,0,0,0.3); padding: 25px; }
-        dialog::backdrop { background: rgba(0,0,0,0.6); }
-        details { background: #f9f9f9; padding: 15px; border-radius: 6px; margin: 10px 0; }
-        summary { font-weight: bold; cursor: pointer; color: #0070f3; }
-        footer { text-align: center; margin-top: 40px; color: #666; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #f4f4f4;
+        }
+        
+        /* Menu Bar */
+        .navbar {
+            background: #1e3a8a;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .nav-menu a:hover {
+            color: #60a5fa;
+        }
+        .signup-btn {
+            background: #f59e0b;
+            padding: 8px 20px;
+            border-radius: 5px;
+            color: #1e3a8a !important;
+            font-weight: bold;
+        }
+        .signup-btn:hover {
+            background: #d97706;
+            color: white !important;
+        }
+        
+        /* Mobile Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+        }
+        
+        /* Sections */
+        section {
+            padding: 100px 20px 60px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        #home {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0;
+        }
+        #home h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        #home p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .cta-btn {
+            background: #f59e0b;
+            color: #1e3a8a;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        #about, #services, #contact {
+            background: white;
+            margin: 40px auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        /* Signup Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background: white;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+        }
+        .close {
+            float: right;
+            font-size: 28px;
+            cursor: pointer;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .submit-btn {
+            width: 100%;
+            background: #1e3a8a;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #1e3a8a;
+                flex-direction: column;
+                padding: 20px;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            #home h1 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🚀 Akash Pal Official</h1>
-        <p style="text-align:center; margin-bottom:30px;">Welcome to my website. নতুন HTML5 Tags দিয়ে বানানো</p>
+    <!-- Menu Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Akash Pal</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="signup-btn" onclick="openModal()">Sign Up</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-        <section>
-            <h2>1. &lt;search&gt; Tag - Search Box</h2>
-            <search>
-                <form>
-                    <input type="search" placeholder="Website এ কিছু খোঁজো..." name="q">
-                    <button type="submit">Search</button>
-                </form>
-            </search>
-        </section>
+    <!-- Home Section -->
+    <section id="home">
+        <div>
+            <h1>Welcome to Akash Pal</h1>
+            <p>Digital Solutions | Web Development | Tech Support</p>
+            <a href="#contact" class="cta-btn">Get Started</a>
+        </div>
+    </section>
 
-        <section>
-            <h2>2. &lt;dialog&gt; Tag - Contact Modal</h2>
-            <button onclick="contactModal.showModal()">Contact Form খোলো</button>
-            
-            <dialog id="contactModal">
-                <h3>আমাকে Message করো</h3>
-                <form method="dialog">
-                    <input type="text" placeholder="তোমার নাম" required>
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>আমরা Akash Pal Digital Solutions। Professional Website Development, Hosting, Domain Setup এবং Tech Support দিয়ে থাকি।</p>
+        <p>3+ বছরের Experience নিয়ে আমরা 100+ Client কে Service দিয়েছি। আপনার Business কে Digital করতে আমরা Ready।</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <p><strong>1. Website Development:</strong> Business Website, E-commerce, Portfolio</p>
+        <p><strong>2. Domain & Hosting:</strong> Custom Domain Setup, Fast Hosting</p>
+        <p><strong>3. Live Chat Support:</strong> Tidio Integration, 24/7 Support</p>
+        <p><strong>4. SEO & Marketing:</strong> Google Ranking, Social Media</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p><strong>Email:</strong> niranjanpal964@gmail.com</p>
+        <p><strong>Phone:</strong> +91 98765 43210</p>
+        <p><strong>Location:</strong> Siuri, West Bengal, India</p>
+    </section>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Sign Up</h2>
+            <form onsubmit="handleSignup(event)">
+                <div class="form-group">
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
                     <input type="email" placeholder="Email Address" required>
-                    <textarea rows="4" placeholder="তোমার Message..." required></textarea>
-                    <button type="submit">Send Message</button>
-                    <button type="button" onclick="contactModal.close()" style="background:#666;">Close</button>
-                </form>
-            </dialog>
-        </section>
-
-        <section>
-            <h2>3. &lt;details&gt; Tag - FAQ Section</h2>
-            <details open>
-                <summary>এই Website কিসের জন্য?</summary>
-                <p>এটা Akash Pal এর Official Portfolio Website। HTML5 এর Latest Tags Use করে বানানো হয়েছে।</p>
-            </details>
-            
-            <details>
-                <summary>Tidio Chat Box কোথায়?</summary>
-                <p>নিচে ডান দিকে Blue Chat Icon আছে। ওটায় Click করলে Live Chat করতে পারবে।</p>
-            </details>
-        </section>
-
-        <section>
-            <h2>4. &lt;picture&gt; Tag - Responsive Image</h2>
-            <picture>
-                <source media="(min-width: 650px)" srcset="https://picsum.photos/800/400">
-                <source media="(min-width: 400px)" srcset="https://picsum.photos/500/250">
-                <img src="https://picsum.photos/300/150" alt="Demo Image" style="width:100%; border-radius: 8px;">
-            </picture>
-        </section>
-
-        <footer>
-            <p>© 2026 Akash Pal. Made with ❤️ using HTML5 New Tags</p>
-        </footer>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="submit-btn">Create Account</button>
+            </form>
+        </div>
     </div>
 
+    <!-- Tidio Chat - তোমার Key Already বসানো -->
     <script src="//code.tidio.co/aw50nk46v1ffhtvdunskihbjtlhh1zc.js" async></script>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+        
+        // Signup Modal
+        function openModal() {
+            document.getElementById('signupModal').style.display = 'block';
+        }
+        function closeModal() {
+            document.getElementById('signupModal').style.display = 'none';
+        }
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('signupModal')) {
+                closeModal();
+            }
+        }
+        
+        // Signup Form
+        function handleSignup(e) {
+            e.preventDefault();
+            alert('Signup Successful! Welcome to Akash Pal');
+            closeModal();
+        }
+        
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-<!-- Test Commit: Akash Pal -->
